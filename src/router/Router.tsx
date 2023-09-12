@@ -1,5 +1,5 @@
 import {createBrowserRouter} from 'react-router-dom';
-import {ReactNode} from 'react';
+import React, {ReactNode} from 'react';
 import App from '../App';
 import ErrorPage from '../pages/Error/ErrorPage';
 import Home from '../pages/Home/Home';
@@ -16,7 +16,12 @@ const routerData: IRouter[] = [
         path: '/',
         element: <App />,
         errorElement: <ErrorPage />,
-        children: [{path: '', element: <Home />}],
+        children: [
+            {
+                path: '',
+                element: <Home />,
+            },
+        ],
     },
 ];
 
