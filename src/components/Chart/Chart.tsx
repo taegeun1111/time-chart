@@ -16,7 +16,7 @@ const Chart = () => {
 
     return (
         <>
-            <ResponsiveContainer width='100%' height={500}>
+            <ResponsiveContainer height={500}>
                 <ComposedChart
                     data={chartData}
                     margin={{
@@ -48,12 +48,12 @@ const Chart = () => {
                             offset: -10,
                         }}
                     />
-                    <Bar dataKey='value_bar' yAxisId='right' fill='#8884d8'>
+                    <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
                         {chartData.map((data, index) => (
-                            <Cell key={index} fill={data.id} />
+                            <Cell key={index} fill={'#1B64DA'} />
                         ))}
                     </Bar>
-                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#82ca9d'></Area>
+                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#7EF9FF'></Area>
                 </ComposedChart>
             </ResponsiveContainer>
         </>

@@ -11,4 +11,6 @@ const Layout = ({children}: Props) => {
 
 export default Layout;
 
-const StyledLayout = styled.div``;
+const StyledLayout = styled.div`
+    width: 70%;
+`;
