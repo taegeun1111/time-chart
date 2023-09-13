@@ -51,14 +51,21 @@ const Chart = () => {
                             offset: -10,
                         }}
                     />
-                    <Tooltip content={<CustomTooltip active={false} payload={[]} />} />
+                    <Tooltip
+                        content={
+                            <CustomTooltip
+                                active={false}
+                                payload={{id: '', time: '', value_area: 0, value_bar: 0}}
+                            />
+                        }
+                    />
                     <Legend height={50} />
                     <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
                         {chartData.map((data, index) => (
                             <Cell key={index} fill={'#1B64DA'} />
                         ))}
                     </Bar>
-                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#7EF9FF'></Area>
+                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#7EF9FF' />
                 </ComposedChart>
             </ResponsiveContainer>
         </>
