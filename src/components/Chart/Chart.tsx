@@ -14,7 +14,10 @@ import {
 } from 'recharts';
 import CustomTooltip from './CustomTooltip';
 
-const Chart = () => {
+interface Props {
+    selectedLocation: string;
+}
+const Chart = ({selectedLocation}: Props) => {
     const {chartData} = useChartData();
 
     return (
@@ -38,8 +41,9 @@ const Chart = () => {
                             value: 'value_area',
                             angle: -90,
                             position: 'insideLeft',
-                            offset: 1,
+                            offset: 10,
                         }}
+                        domain={[0, 200]}
                     />
                     <YAxis
                         yAxisId='right'
@@ -62,10 +66,13 @@ const Chart = () => {
                     <Legend height={50} />
                     <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
                         {chartData.map((data, index) => (
-                            <Cell key={index} fill={'#1B64DA'} />
+                            <Cell
+                                key={index}
+                                fill={data.id === selectedLocation ? '#0d45ab' : '#72b0ff'}
+                            />
                         ))}
                     </Bar>
-                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#7EF9FF' />
+                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#b6fffe' />
                 </ComposedChart>
             </ResponsiveContainer>
         </>

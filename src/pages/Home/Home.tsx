@@ -10,7 +10,7 @@ const Home = () => {
 
     return (
         <>
-            <Chart />
+            <Chart selectedLocation={selectedLocation} />
 
             <StyledBtnWrapper>
                 {chartUniqueLocation.map(id => (

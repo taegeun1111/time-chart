@@ -31,7 +31,7 @@ export default LocationBtn;
 const StyledLocationBtn = styled.button`
     padding: 10px 15px;
     margin: 0 3px;
-    background-color: cornflowerblue;
+    background-color: #568dff;
     border: none;
     color: white;
     border-radius: 3px;
