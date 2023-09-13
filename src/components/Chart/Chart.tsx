@@ -6,17 +6,20 @@ import {
     CartesianGrid,
     Cell,
     ComposedChart,
+    Legend,
     ResponsiveContainer,
+    Tooltip,
     XAxis,
     YAxis,
 } from 'recharts';
+import CustomTooltip from './CustomTooltip';
 
 const Chart = () => {
     const {chartData} = useChartData();
 
     return (
         <>
-            <ResponsiveContainer height={500}>
+            <ResponsiveContainer height={700}>
                 <ComposedChart
                     data={chartData}
                     margin={{
@@ -48,6 +51,8 @@ const Chart = () => {
                             offset: -10,
                         }}
                     />
+                    <Tooltip content={<CustomTooltip active={false} payload={[]} />} />
+                    <Legend height={50} />
                     <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
                         {chartData.map((data, index) => (
                             <Cell key={index} fill={'#1B64DA'} />

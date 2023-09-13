@@ -10,7 +10,6 @@ const useChartData = () => {
             time,
             ...data,
         }));
-        console.log('updateData: ', updateData);
         setChartData(updateData);
     };
 
