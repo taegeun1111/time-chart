@@ -69,7 +69,7 @@ const Chart = ({selectedLocation, locationToggleHandler}: Props) => {
           <Legend height={20} />
           <Bar
             dataKey={VALUE_BAR_KEY}
-            barSize={10}
+            barSize={13}
             yAxisId='right'
             fill={barDefaultColor}
             onClick={data => {
@@ -83,7 +83,14 @@ const Chart = ({selectedLocation, locationToggleHandler}: Props) => {
               />
             ))}
           </Bar>
-          <Area type='monotone' dataKey={VALUE_AREA_KEY} yAxisId='left' fill={lineDefaultColor} />
+          <Area
+            type='monotone'
+            dataKey={VALUE_AREA_KEY}
+            yAxisId='left'
+            fill={lineDefaultColor}
+            isAnimationActive={false}
+            pointerEvents='none'
+          />
         </ComposedChart>
       </ResponsiveContainer>
     </>

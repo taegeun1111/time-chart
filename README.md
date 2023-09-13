@@ -177,42 +177,44 @@
 
 #### **구현 방법**
 
-사용 기술 : Recharts
+사용 기술 : Recharts, Props 전달
 
-1. Hover
+1. 하이라이팅
 
-- `content` 속성을 통해 툴팁의 내용을 정의하고 내용은 <CustomTooltip> 컴포넌트로 지정해 구현했습니다.
+- 부모 컴포넌트인 `<Home />`에서 하나의 Toggle 핸들러를 공유하는 방식으로 자식 컴포넌트들에게 Props를 전달하여 state를 관리 했습니다
 
   <details>
   <summary>코드보기</summary>
 
   ```ts
-   <Tooltip
-      content={
-        <CustomTooltip
-          active={false}
-          payload={{id: '', value_area: 0, value_bar: 0}}
-        />
+    const Home = () => {
+    const {chartUniqueLocation} = useChartData();
+    const [selectedLocation, setSelectedLocation] = useState('');
+
+    const locationToggleHandler = (id: string) => {
+      if (id === selectedLocation) {
+        setSelectedLocation('');
+     } else {
+       setSelectedLocation(id);
       }
-    />
-
-  //CustomTooltop Component
-  const CustomTooltip = ({active, payload}: any) => {
-  if (active && payload) {
+    };
     return (
-      <StyledCustomTooltip>
-        <p className='location'>{`${payload[0].payload.id}`}</p>
-        {payload.map((data: any, index: number) => (
-          <p key={index} style={{color: data.color}}>
-            {`${data.name}: ${data.value}`}
-          </p>
-        ))}
-      </StyledCustomTooltip>
-    );
-  }
+    <>
+      <Chart selectedLocation={selectedLocation} locationToggleHandler={locationToggleHandler} />
 
-  return null;
-  };
+      <StyledBtnWrapper>
+        {chartUniqueLocation.map(id => (
+          <LocationBtn
+            key={id}
+            id={id}
+            selectedLocation={selectedLocation}
+            locationToggleHandler={locationToggleHandler}
+          />
+        ))}
+      </StyledBtnWrapper>
+    </>
+  );
+
   ```
 
   </details>
