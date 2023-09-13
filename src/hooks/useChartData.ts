@@ -7,7 +7,7 @@ const useChartData = () => {
     const getChart = async () => {
         const data: IResponseData = await httpClient();
         const updateData: IChart[] = Object.entries(data).map(([time, data]) => ({
-            time,
+            time: new Date(time).toLocaleTimeString(),
             ...data,
         }));
         setChartData(updateData);

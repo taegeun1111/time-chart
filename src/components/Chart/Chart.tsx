@@ -34,7 +34,7 @@ const Chart = ({selectedLocation}: Props) => {
                     barGap={10}
                 >
                     <CartesianGrid stroke='#f5f5f5' />
-                    <XAxis dataKey='time' />
+                    <XAxis dataKey='time' tick={{fontSize: 15}} />
                     <YAxis
                         yAxisId='left'
                         label={{
@@ -44,6 +44,7 @@ const Chart = ({selectedLocation}: Props) => {
                             offset: 10,
                         }}
                         domain={[0, 200]}
+                        tick={{fontSize: 15}}
                     />
                     <YAxis
                         yAxisId='right'
@@ -54,6 +55,7 @@ const Chart = ({selectedLocation}: Props) => {
                             position: 'insideRight',
                             offset: -10,
                         }}
+                        tick={{fontSize: 15}}
                     />
                     <Tooltip
                         content={
@@ -63,7 +65,7 @@ const Chart = ({selectedLocation}: Props) => {
                             />
                         }
                     />
-                    <Legend height={50} />
+                    <Legend height={20} />
                     <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
                         {chartData.map((data, index) => (
                             <Cell
