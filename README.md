@@ -223,6 +223,8 @@
 
 ## 📽 구현 영상
 
+[Screen Recording 2023-09-13 at 8.20.49 PM.mov](..%2FScreen%20Recording%202023-09-13%20at%208.20.49%20PM.mov)
+
 ## 🧐 배포 및 컨벤션
 
 - `GitHub Actions`를 통한 CI/CD AWS S3 자동 배포
