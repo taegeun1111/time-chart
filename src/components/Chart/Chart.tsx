@@ -17,9 +17,10 @@ import {chartColors, VALUE_AREA_KEY, VALUE_BAR_KEY} from '../../constant/chart.c
 
 interface Props {
   selectedLocation: string;
+  locationToggleHandler: (id: string) => void;
 }
 
-const Chart = ({selectedLocation}: Props) => {
+const Chart = ({selectedLocation, locationToggleHandler}: Props) => {
   const {chartData} = useChartData();
   const {chartStroke, lineDefaultColor, barDefaultColor, barActiveColor} = chartColors;
 
@@ -62,14 +63,19 @@ const Chart = ({selectedLocation}: Props) => {
           />
           <Tooltip
             content={
-              <CustomTooltip
-                active={false}
-                payload={{id: '', time: '', value_area: 0, value_bar: 0}}
-              />
+              <CustomTooltip active={false} payload={{id: '', value_area: 0, value_bar: 0}} />
             }
           />
           <Legend height={20} />
-          <Bar dataKey={VALUE_BAR_KEY} barSize={15} yAxisId='right' fill={barDefaultColor}>
+          <Bar
+            dataKey={VALUE_BAR_KEY}
+            barSize={10}
+            yAxisId='right'
+            fill={barDefaultColor}
+            onClick={data => {
+              locationToggleHandler(data.id);
+            }}
+          >
             {chartData.map((data, index) => (
               <Cell
                 key={index}
