@@ -13,12 +13,15 @@ import {
     YAxis,
 } from 'recharts';
 import CustomTooltip from './CustomTooltip';
+import {chartColors, VALUE_AREA_KEY, VALUE_BAR_KEY} from '../../constant/chart.const';
 
 interface Props {
     selectedLocation: string;
 }
+
 const Chart = ({selectedLocation}: Props) => {
     const {chartData} = useChartData();
+    const {chartStroke, lineDefaultColor, barDefaultColor, barActiveColor} = chartColors;
 
     return (
         <>
@@ -33,12 +36,12 @@ const Chart = ({selectedLocation}: Props) => {
                     }}
                     barGap={10}
                 >
-                    <CartesianGrid stroke='#f5f5f5' />
+                    <CartesianGrid stroke={chartStroke} />
                     <XAxis dataKey='time' tick={{fontSize: 15}} />
                     <YAxis
                         yAxisId='left'
                         label={{
-                            value: 'value_area',
+                            value: VALUE_AREA_KEY,
                             angle: -90,
                             position: 'insideLeft',
                             offset: 10,
@@ -50,7 +53,7 @@ const Chart = ({selectedLocation}: Props) => {
                         yAxisId='right'
                         orientation='right'
                         label={{
-                            value: 'value_bar',
+                            value: VALUE_BAR_KEY,
                             angle: 90,
                             position: 'insideRight',
                             offset: -10,
@@ -66,15 +69,27 @@ const Chart = ({selectedLocation}: Props) => {
                         }
                     />
                     <Legend height={20} />
-                    <Bar dataKey='value_bar' barSize={15} fill='#1B64DA' yAxisId='right'>
+                    <Bar
+                        dataKey={VALUE_BAR_KEY}
+                        barSize={15}
+                        yAxisId='right'
+                        fill={barDefaultColor}
+                    >
                         {chartData.map((data, index) => (
                             <Cell
                                 key={index}
-                                fill={data.id === selectedLocation ? '#0d45ab' : '#72b0ff'}
+                                fill={
+                                    data.id === selectedLocation ? barActiveColor : barDefaultColor
+                                }
                             />
                         ))}
                     </Bar>
-                    <Area type='monotone' dataKey='value_area' yAxisId='left' fill='#b6fffe' />
+                    <Area
+                        type='monotone'
+                        dataKey={VALUE_AREA_KEY}
+                        yAxisId='left'
+                        fill={lineDefaultColor}
+                    />
                 </ComposedChart>
             </ResponsiveContainer>
         </>
