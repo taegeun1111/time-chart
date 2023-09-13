@@ -223,7 +223,10 @@
 
 ## 📽 구현 영상
 
-[Screen Recording 2023-09-13 at 8.20.49 PM.mov](..%2FScreen%20Recording%202023-09-13%20at%208.20.49%20PM.mov)
+
+https://github.com/taegeun1111/time-chart/assets/122959190/8995ab63-c7d8-4f54-a3cb-76903d62f583
+
+
 
 ## 🧐 배포 및 컨벤션
 
