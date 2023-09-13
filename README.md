@@ -223,10 +223,7 @@
 
 ## 📽 구현 영상
 
-
 https://github.com/taegeun1111/time-chart/assets/122959190/8995ab63-c7d8-4f54-a3cb-76903d62f583
-
-
 
 ## 🧐 배포 및 컨벤션
 
