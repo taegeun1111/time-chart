@@ -1,6 +1,6 @@
-# [Week 2] Best Practice of Wanted Pre-onboarding Assignment
+# [Week 4] 시계열 차트
 
-원티드 프리온보딩 인턴십 3팀 3주차 개인과제입니다.
+원티드 프리온보딩 인턴십 4주차 개인과제입니다.
 
 ## 🚀 배포 링크
 
@@ -168,6 +168,8 @@
 
   </details>
 
+<br />
+
 ### **[Assignment 2] 필터링 기능**
 
 > - 필터링 기능을 구현해주세요, 필터링은 특정 데이터 구역을 하이라이트 하는 방식으로 구현해주세요
@@ -177,7 +179,7 @@
 
 #### **구현 방법**
 
-사용 기술 : Recharts, Props 전달
+사용 기술 : Recharts, Props
 
 1. 하이라이팅
 
@@ -220,6 +222,14 @@
   </details>
 
 ## 📽 구현 영상
+
+## 🧐 배포 및 컨벤션
+
+- `GitHub Actions`를 통한 CI/CD AWS S3 자동 배포
+  - main 브런치로 push가 일어날 때 기존 파일들을 지운 후 새로 업로드
+- `Prettier`,`eslintrc`,`husky`를 통해 코드 통일 및 코드 품질 향상
+  - .eslintrc.js 및 .prettierrc.js 설정 파일을 사용하여 코드 품질 및 일관성을 관리
+  - husky를 사용하여 Git 커밋 시에 코드 검사 및 포맷팅이 자동으로 실행되도록 설정하여 코드 변경 사항이 커밋되기 전에 자동으로 코드 품질을 유지
 
 ## 🗂️ 폴더 구조
 
