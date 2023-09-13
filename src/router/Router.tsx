@@ -5,24 +5,24 @@ import ErrorPage from '../pages/Error/ErrorPage';
 import Home from '../pages/Home/Home';
 
 interface IRouter {
-    path: string;
-    element: ReactNode;
-    errorElement?: ReactNode;
-    children?: IRouter[];
+  path: string;
+  element: ReactNode;
+  errorElement?: ReactNode;
+  children?: IRouter[];
 }
 
 const routerData: IRouter[] = [
-    {
-        path: '/',
-        element: <App />,
-        errorElement: <ErrorPage />,
-        children: [
-            {
-                path: '',
-                element: <Home />,
-            },
-        ],
-    },
+  {
+    path: '/',
+    element: <App />,
+    errorElement: <ErrorPage />,
+    children: [
+      {
+        path: '',
+        element: <Home />,
+      },
+    ],
+  },
 ];
 
 export const router = createBrowserRouter(routerData);

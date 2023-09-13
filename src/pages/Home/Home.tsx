@@ -5,31 +5,31 @@ import Chart from '../../components/Chart/Chart';
 import styled from 'styled-components';
 
 const Home = () => {
-    const {chartUniqueLocation} = useChartData();
-    const [selectedLocation, setSelectedLocation] = useState('');
+  const {chartUniqueLocation} = useChartData();
+  const [selectedLocation, setSelectedLocation] = useState('');
 
-    return (
-        <>
-            <Chart selectedLocation={selectedLocation} />
+  return (
+    <>
+      <Chart selectedLocation={selectedLocation} />
 
-            <StyledBtnWrapper>
-                {chartUniqueLocation.map(id => (
-                    <LocationBtn
-                        key={id}
-                        id={id}
-                        selectedLocation={selectedLocation}
-                        setSelectedLocation={setSelectedLocation}
-                    />
-                ))}
-            </StyledBtnWrapper>
-        </>
-    );
+      <StyledBtnWrapper>
+        {chartUniqueLocation.map(id => (
+          <LocationBtn
+            key={id}
+            id={id}
+            selectedLocation={selectedLocation}
+            setSelectedLocation={setSelectedLocation}
+          />
+        ))}
+      </StyledBtnWrapper>
+    </>
+  );
 };
 
 export default Home;
 
 const StyledBtnWrapper = styled.div`
-    width: 100%;
-    display: flex;
-    justify-content: center;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 `;

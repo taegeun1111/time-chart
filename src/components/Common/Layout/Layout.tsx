@@ -2,15 +2,15 @@ import {ReactNode} from 'react';
 import styled from 'styled-components';
 
 interface Props {
-    children: ReactNode;
+  children: ReactNode;
 }
 
 const Layout = ({children}: Props) => {
-    return <StyledLayout>{children}</StyledLayout>;
+  return <StyledLayout>{children}</StyledLayout>;
 };
 
 export default Layout;
 
 const StyledLayout = styled.div`
-    width: 90%;
+  width: 90%;
 `;
