@@ -8,9 +8,16 @@ const Home = () => {
   const {chartUniqueLocation} = useChartData();
   const [selectedLocation, setSelectedLocation] = useState('');
 
+  const locationToggleHandler = (id: string) => {
+    if (id === selectedLocation) {
+      setSelectedLocation('');
+    } else {
+      setSelectedLocation(id);
+    }
+  };
   return (
     <>
-      <Chart selectedLocation={selectedLocation} />
+      <Chart selectedLocation={selectedLocation} locationToggleHandler={locationToggleHandler} />
 
       <StyledBtnWrapper>
         {chartUniqueLocation.map(id => (
@@ -18,7 +25,7 @@ const Home = () => {
             key={id}
             id={id}
             selectedLocation={selectedLocation}
-            setSelectedLocation={setSelectedLocation}
+            locationToggleHandler={locationToggleHandler}
           />
         ))}
       </StyledBtnWrapper>

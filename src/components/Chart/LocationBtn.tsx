@@ -4,21 +4,13 @@ import styled from 'styled-components';
 interface Props {
   id: string;
   selectedLocation: string;
-  setSelectedLocation: Dispatch<SetStateAction<string>>;
+  locationToggleHandler: (id: string) => void;
 }
 
-const LocationBtn = ({id, selectedLocation, setSelectedLocation}: Props) => {
-  const btnToggleHandler = () => {
-    if (id === selectedLocation) {
-      setSelectedLocation('');
-    } else {
-      setSelectedLocation(id);
-    }
-  };
-
+const LocationBtn = ({id, selectedLocation, locationToggleHandler}: Props) => {
   return (
     <StyledLocationBtn
-      onClick={btnToggleHandler}
+      onClick={() => locationToggleHandler(id)}
       className={id === selectedLocation ? 'active' : ''}
     >
       {id}
